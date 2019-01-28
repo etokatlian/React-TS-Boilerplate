@@ -1,9 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
-import {Hello} from "./components/Hello";
+import { Hello } from "./features/Hello";
 
-ReactDOM.render(
-    <Hello/>,
-    document.getElementById("app")
-);
+ReactDOM.render(<Hello />, document.getElementById("app"));
