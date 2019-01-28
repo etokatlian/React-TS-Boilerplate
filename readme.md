@@ -2,7 +2,7 @@
 
 ## Description
 
-Boilerplate for client side JS application that includes the following:
+Boilerplate for client side JS application that`includes the following:
 
 - React @16
 - Typescript @3
@@ -34,3 +34,9 @@ _Use yarn, instead of npm, for better caching/performance_
 ## Tests
 
 Statement, Branch, Func and Line coverage must exceed 80% before submitting a pull request into integration.
+
+## Commits
+
+Write the summary line and description of what you have done in the imperative mode, that is as if you were commanding someone. Start the line with "Fix", "Add", "Change" instead of "Fixed", "Added", "Changed"
+
+Don't end the summary line with a period - it's a title and titles don't end with a period.
