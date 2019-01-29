@@ -4,13 +4,17 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
     "start": "webpack-dev-server --mode development --inline --hot",
     "test": "jest",
     "tslint": "tslint './src/**/*.{ts,tsx}'",
     "tslint:fix": "npm run tslint -- --fix",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
-    "prettier": "prettier --write --config ./prettierrc.json './src/**/*.{ts,tsx}'"
+    "prettier": "prettier --write --config ./prettierrc.json './src/**/*.{ts,tsx}'",
+    "dev": "npm run clean && webpack --config webpack.config.js",
+    "build": "npm run clean && webpack --config webpack.production.config.js --progress --profile --colors",
+    "test": "jest",
+    "clean": "rimraf dist",
+    "serve": "node server.js"
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
@@ -42,6 +46,7 @@
     "jest": "23.6.0",
     "prettier": "^1.16.1",
     "react-hot-loader": "^4.6.3",
+    "rimraf": "^2.6.3",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^23.10.5",
     "tslint": "^5.12.1",
