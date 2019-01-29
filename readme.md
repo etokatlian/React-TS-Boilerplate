@@ -46,3 +46,9 @@ Statement, Branch, Func and Line coverage must exceed 80% before submitting a pu
 Write the summary line and description of what you have done in the imperative mode, that is as if you were commanding someone. Start the line with "Fix", "Add", "Change" instead of "Fixed", "Added", "Changed"
 
 Don't end the summary line with a period - it's a title and titles don't end with a period.
+
+## VSCode
+
+To work on this project and abide by the linting rules, please install the following Extensions: TSLint, Prettier
+
+Confine the TSLint, Prettier extensions to this project by using "Enable (Workspace)" so these addons don't interfere with other projects. Doing so will create a .vscode folder in your root with settings containing the settings enabled for this workspace. The .vscode folder is also added to the .gitignore file.
