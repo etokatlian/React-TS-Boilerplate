@@ -1,13 +1,16 @@
 const webpack = require("webpack");
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    filename: "bundle.js",
+    filename: "[name].[hash].js",
+    chunkFilename: "[name].[hash].js",
     path: path.resolve(__dirname + "/dist"),
-    publicPath: "/dist/"
+    publicPath: ""
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -38,17 +41,28 @@ module.exports = {
         test: /\.js$/,
         loader: "source-map-loader"
       },
-      // Resolve png, jpg, svg into url and emit file into the output directory
+      // Resolve svg into url and emit file into the output directory
       {
-        test: /\.(png|jpg|svg)$/,
+        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
         use: [
           {
-            loader: "file-loader",
-            options: {}
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              mimetype: "image/svg+xml",
+              name: "images/[name].[ext]"
+            }
           }
         ]
       }
     ]
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: `${__dirname}/index.html`,
+      filename: "index.html",
+      inject: "body"
+    })
+  ]
 };
