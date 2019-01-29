@@ -15,6 +15,12 @@ _Use yarn, instead of npm, for better caching/performance_
 
 **yarn start**: Starts dev server with hot module reloading.
 
+**yarn build**: Cleans dist & Creates production build in /dist.
+
+**yarn dev**: Cleans dist & Creates dev build in /dist with sourcemaps.
+
+**yarn serve**: Starts local node server and serves index.html from /dist.
+
 **yarn test _file_name_**: Tests specific file.
 
 **yarn test**: Runs jest test + gets coverage report.

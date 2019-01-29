@@ -2,9 +2,10 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: "./src/index.tsx",
   output: {
     filename: "[name].[hash].js",
@@ -13,19 +14,29 @@ module.exports = {
     publicPath: ""
   },
 
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: "source-map",
-
-  // Dev server options
-  devServer: {
-    port: 8080,
-    historyApiFallback: true,
-    inline: true
-  },
-
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: [".ts", ".tsx", ".js", ".json"]
+  },
+
+  optimization: {
+    runtimeChunk: false,
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        }
+      }
+    },
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      })
+    ]
   },
 
   module: {
@@ -63,6 +74,13 @@ module.exports = {
       template: `${__dirname}/index.html`,
       filename: "index.html",
       inject: "body"
+    }),
+    new CompressionPlugin({
+      algorithm: "gzip",
+      test: /\.ts$\.tsx$\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: true
     })
   ]
 };
