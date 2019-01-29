@@ -1,10 +1,7 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react'
+import * as ReactDOM from 'react-dom'
 
-import {Hello} from "./shared/Hello";
-import App from "./containers/App";
+import App from './containers/App'
+import { Hello } from './shared/Hello'
 
-ReactDOM.render(
-    <App/>,
-    document.getElementById("app")
-);
+ReactDOM.render(<App />, document.getElementById('app'))
