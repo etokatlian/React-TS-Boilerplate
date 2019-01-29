@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Hello component renders 1`] = `
-<h1>
-  React/TS Boilerplate
-</h1>
-`;
