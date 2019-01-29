@@ -1,13 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import TFLogo from "../assets/images/tf-logo.svg";
+
 const AppWrapper = styled.div`
   display: flex;
   padding: 50px;
-`;
-
-const AppContent = styled.div`
-  background-color: red;
 `;
 
 export interface AppProps {}
@@ -18,7 +16,7 @@ export default class App extends React.Component<AppProps, AppState> {
   render() {
     return (
       <AppWrapper>
-        <AppContent>Something</AppContent>
+        <img src={TFLogo} alt="" />
       </AppWrapper>
     );
   }

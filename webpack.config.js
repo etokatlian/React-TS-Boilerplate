@@ -37,6 +37,16 @@ module.exports = {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
+      },
+      // Resolve png, jpg, svg into url and emit file into the output directory
+      {
+        test: /\.(png|jpg|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {}
+          }
+        ]
       }
     ]
   },
