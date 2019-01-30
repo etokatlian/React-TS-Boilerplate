@@ -1,12 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import TFLogo from '../assets/images/tf-logo.svg';
-
-const AppWrapper: any = styled.div`
-  display: flex;
-  padding: 50px;
-`;
 
 export interface IAppProps {
   some?: any;
@@ -19,9 +13,10 @@ export interface IAppState {
 export default class App extends React.Component<IAppProps, IAppState> {
   public render() {
     return (
-      <AppWrapper>
+      <div className="app-wrapper">
+        <h1>React/TS Boilerplate</h1>
         <img src={TFLogo} alt="" />
-      </AppWrapper>
+      </div>
     );
   }
 }
