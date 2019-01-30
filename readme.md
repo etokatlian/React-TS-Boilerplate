@@ -6,9 +6,9 @@ Boilerplate for client side JS application that`includes the following:
 
 - React @16
 - Typescript @3
+- Sass/Node-sass @4
 - Webpack @4
 - Jest @23
-- Styled Components @4
 - React-router-dom @4
 - Express @4
 
