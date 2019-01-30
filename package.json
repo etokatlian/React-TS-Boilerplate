@@ -4,14 +4,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --mode development --inline --hot",
+    "start": "webpack-dev-server --open --config config/webpack.config.js",
     "test": "jest",
     "tslint": "tslint --config tslint.json './src/**/*.{ts,tsx}'",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
-    "prettier": "prettier --config prettierrc.json --write \"{,!(node_modules|dist|build|coverage)/**/}*.{js,jsx,ts,tsx,json}\"",
+    "prettier": "prettier --config prettierrc.json --write \"{,!(node_modules|dist|build|coverage|config)/**/}*.{js,jsx,ts,tsx,json}\"",
     "pre-commit": "yarn prettier && yarn tslint",
-    "dev": "yarn run clean && webpack --config webpack.config.js",
-    "build": "yarn run clean && webpack --config webpack.production.config.js --progress --profile --colors",
+    "dev": "yarn run clean && webpack --config ./config/webpack.config.js",
+    "build": "yarn run clean && webpack --config ./config/webpack.config.prod.js --progress --profile --colors",
     "clean": "rimraf dist",
     "serve": "node server.js"
   },
