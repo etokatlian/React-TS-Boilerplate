@@ -30,7 +30,7 @@ module.exports = merge(common, {
   plugins: [
     new CompressionPlugin({
       algorithm: "gzip",
-      test: /\.ts$\.tsx$\.js$|\.css$|\.html$/,
+      test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
       deleteOriginalAssets: true

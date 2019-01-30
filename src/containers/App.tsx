@@ -17,6 +17,7 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <AppWrapper>
         <img src={TFLogo} alt="" />
+        <h1>React/TS Boilerplate</h1>
       </AppWrapper>
     );
   }
