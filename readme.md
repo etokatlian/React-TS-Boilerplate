@@ -49,6 +49,14 @@ Don't end the summary line with a period - it's a title and titles don't end wit
 
 ## VSCode
 
-To work on this project and abide by the linting rules, please install the following Extensions: TSLint, Prettier
+To work on this project and abide by the linting rules, please install the following Extensions: TypeScrit TSLint Plugin (New Version), Prettier
 
-Confine the TSLint, Prettier extensions to this project by using "Enable (Workspace)" so these addons don't interfere with other projects. Doing so will create a .vscode folder in your root with settings containing the settings enabled for this workspace. The .vscode folder is also added to the .gitignore file.
+Confine the TypeScrit TSLint Plugin (New Version), Prettier extensions to this project by creating a .vscode folder inside your root dir, placing a settings.json file in it and the following contents:
+
+```
+{
+  "javascript.format.enable": false,
+  "editor.formatOnSave": true,
+  "prettier.tslintIntegration": true
+}
+```

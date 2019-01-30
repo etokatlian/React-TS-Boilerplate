@@ -1,11 +1,15 @@
-import React from "react";
+import React from 'react';
 
-export interface HelloProps {}
+export interface IHelloProps {
+  some?: any;
+}
 
-export interface HelloState {}
+export interface IHelloState {
+  some?: any;
+}
 
-export class Hello extends React.Component<HelloProps, HelloState> {
-    render() {
-        return <h1>React/TS Boilerplate</h1>
-    }
+export class Hello extends React.Component<IHelloProps, IHelloState> {
+  public render() {
+    return <h1>React/TS Boilerplate</h1>;
+  }
 }

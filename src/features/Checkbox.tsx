@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export class CheckboxWithLabel extends React.Component<
   {
@@ -13,13 +13,13 @@ export class CheckboxWithLabel extends React.Component<
     super(props);
     this.state = { isChecked: false };
   }
-  onChange = () => {
+  public onChange = () => {
     this.setState({ isChecked: !this.state.isChecked });
   };
 
-  render() {
+  public render() {
     const something = true;
-    const test = something ? "something" : "else";
+    const test = something ? 'something' : 'else';
     return (
       <label>
         <input
