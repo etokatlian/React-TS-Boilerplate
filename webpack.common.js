@@ -33,14 +33,14 @@ module.exports = {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
               limit: 8192,
-              mimetype: "image/png",
-              name: "images/[name].[ext]"
-            }
-          }
-        ]
+              mimetype: 'image/png',
+              name: 'images/[name].[ext]',
+            },
+          },
+        ],
       },
       // Resolve svg into url and emit file into the output directory
       {
@@ -50,13 +50,13 @@ module.exports = {
             loader: 'url-loader',
             options: {
               limit: 8192,
-              mimetype: "image/svg+xml",
-              name: "images/[name].[ext]"
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: 'image/svg+xml',
+              name: 'images/[name].[ext]',
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [

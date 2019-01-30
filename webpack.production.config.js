@@ -1,13 +1,13 @@
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-const merge = require("webpack-merge");
-const common = require("./webpack.common");
+const merge = require('webpack-merge');
+const common = require('./webpack.common');
 
 module.exports = merge(common, {
-  mode: "production",
+  mode: 'production',
 
   optimization: {
     runtimeChunk: false,
@@ -15,40 +15,40 @@ module.exports = merge(common, {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
-        }
-      }
+          name: 'vendors',
+          chunks: 'all',
+        },
+      },
     },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
 
   module: {
     rules: [
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      }
-    ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.[contenthash].css"
+      filename: 'style.[contenthash].css',
     }),
     new CompressionPlugin({
-      algorithm: "gzip",
+      algorithm: 'gzip',
       test: /\.js$|\.(sa|sc|c)ss$|\.html$/,
       threshold: 2000,
       minRatio: 0.8,
-      deleteOriginalAssets: true
-    })
-  ]
+      deleteOriginalAssets: true,
+    }),
+  ],
 });
