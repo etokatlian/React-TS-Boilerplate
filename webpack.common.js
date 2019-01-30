@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.tsx",
+  entry: ["./src/index.tsx", "./src/assets/scss/main.scss"],
   output: {
     filename: "[name].[hash].js",
     chunkFilename: "[name].[hash].js",
@@ -22,7 +22,6 @@ module.exports = {
         test: /\.tsx?$/,
         loader: "babel-loader"
       },
-
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {
         enforce: "pre",
@@ -31,20 +30,19 @@ module.exports = {
       },
       // Resolve svg into url and emit file into the output directory
       {
-        test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(svg|jpg|gif)$/,
         use: [
           {
             loader: "url-loader",
             options: {
-              limit: 8192,
-              mimetype: "image/svg+xml",
-              name: "images/[name].[ext]"
+              limit: 8192
             }
           }
         ]
       }
     ]
   },
+
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
