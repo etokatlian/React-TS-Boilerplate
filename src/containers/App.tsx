@@ -14,8 +14,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
   public render() {
     return (
       <div className="app-wrapper">
-        <h1>React/TS Boilerplate</h1>
         <img src={TFLogo} alt="" />
+        <h1>React/TS Boilerplate</h1>
       </div>
     );
   }
