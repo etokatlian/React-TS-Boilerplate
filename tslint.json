@@ -8,6 +8,7 @@
   ],
   "jsRules": {},
   "rules": {
+    "ordered-imports": false,
     "no-magic-numbers": true,
     "no-duplicate-switch-case": true,
     "no-invalid-template-strings": true,

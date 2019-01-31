@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { DatePicker, Slider } from 'antd';
 
+import RandomPage from '../features/randompage/RandomPageContainer';
 import TFLogo from '../assets/images/tf-logo.svg';
 
 export interface IAppProps {
@@ -29,10 +30,10 @@ const marks = {
   36: '36',
   100: {
     style: {
-      color: '#f50'
+      color: '#f50',
     },
-    label: <strong>72</strong>
-  }
+    label: <strong>72</strong>,
+  },
 };
 
 export default class App extends React.Component<IAppProps, IAppState> {
@@ -43,6 +44,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <StyledDiv>React/TS Boilerplate</StyledDiv>
         <DatePicker />
         <Slider marks={marks} step={10} defaultValue={36} />
+        <RandomPage name="test" />
       </StyledApp>
     );
   }
