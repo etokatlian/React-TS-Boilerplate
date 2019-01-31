@@ -23,6 +23,7 @@
     "typedef": [true, "property-declaration", "variable-declaration"],
     "quotemark": [true, "single", "jsx-double"],
     "arrow-parens": false,
+    "ordered-imports": false,
 
     "jsx-alignment": true,
     "jsx-curly-spacing": "never",
