@@ -3,7 +3,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ["./src/index.tsx", "./src/assets/scss/main.scss"],
+  entry: "./src/index.tsx",
 
   output: {
     filename: "[name].[hash].js",

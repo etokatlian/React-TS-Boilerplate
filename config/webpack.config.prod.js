@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionPlugin = require("compression-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -10,13 +11,20 @@ module.exports = merge(common, {
   mode: "production",
 
   optimization: {
-    runtimeChunk: false,
+    runtimeChunk: "single",
     splitChunks: {
+      chunks: "all",
+      maxInitialRequests: Infinity,
+      minSize: 100000,
       cacheGroups: {
-        commons: {
+        vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
+          name(module) {
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1];
+            return `npm.${packageName.replace("@", "")}`;
+          }
         }
       }
     },
@@ -41,8 +49,11 @@ module.exports = merge(common, {
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "style.[contenthash].css"
+      filename: "[name].css",
+      chunkFilename: "[id].css"
     }),
+    // Used to decrease momentjs bundle size
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
     new CompressionPlugin({
       algorithm: "gzip",
       test: /\.js$|\.(sa|sc|c)ss$|\.html$/,
@@ -50,5 +61,10 @@ module.exports = merge(common, {
       minRatio: 0.8,
       deleteOriginalAssets: true
     })
-  ]
+  ],
+
+  // Used to decrease momentjs bundle size
+  resolve: {
+    alias: { moment: `moment/moment.js` }
+  }
 });
