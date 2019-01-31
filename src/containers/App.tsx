@@ -1,5 +1,8 @@
+import { DatePicker } from 'antd';
 import React from 'react';
+import styled from 'styled-components';
 
+import 'antd/dist/antd.css';
 import TFLogo from '../assets/images/tf-logo.svg';
 
 export interface IAppProps {
@@ -10,13 +13,18 @@ export interface IAppState {
   some?: any;
 }
 
+export const StyledApp = styled.div`
+  width: 300px;
+`;
+
 export default class App extends React.Component<IAppProps, IAppState> {
   public render() {
     return (
-      <div className="app-wrapper">
+      <StyledApp className="app-wrapper">
         <img src={TFLogo} alt="" />
-        <h1>React/TS Boilerplate</h1>
-      </div>
+        <div>React/TS Boilerplate</div>
+        <DatePicker />
+      </StyledApp>
     );
   }
 }
