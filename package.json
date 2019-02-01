@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --config config/webpack.config.js",
+    "start": "webpack-dev-server --config config/webpack.config.js",
     "test": "jest",
     "tslint": "tslint --config tslint.json './src/**/*.{ts,tsx}'",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
@@ -50,6 +50,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-import": "^1.11.0",
+    "babel-preset-es2015": "^6.24.1",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.0",
     "enzyme": "^3.8.0",

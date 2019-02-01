@@ -24,16 +24,31 @@ export const StyledDiv = styled.div`
   text-align: center;
 `;
 
+export const StyledSlider = styled(Slider)`
+  .ant-slider-track {
+    background-color: ${props => props.theme.main};
+  }
+
+  .ant-slider-dot {
+    border-color: ${props => props.theme.main};
+  }
+
+  .ant-slider-handle {
+    border-color: ${props => props.theme.main};
+    background-color: ${props => props.theme.main};
+  }
+`;
+
 const marks = {
   0: '12',
   24: '24',
   36: '36',
   100: {
     style: {
-      color: '#f50',
+      color: '#f50'
     },
-    label: <strong>72</strong>,
-  },
+    label: <strong>72</strong>
+  }
 };
 
 export default class App extends React.Component<IAppProps, IAppState> {
@@ -43,8 +58,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <img src={TFLogo} alt="" />
         <StyledDiv>React/TS Boilerplate</StyledDiv>
         <DatePicker />
-        <Slider marks={marks} step={10} defaultValue={36} />
-        <RandomPage name="test" />
+        <StyledSlider marks={marks} step={10} defaultValue={36} />
+        {/* <RandomPage name="test" /> */}
       </StyledApp>
     );
   }
