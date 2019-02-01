@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open --config config/webpack.config.js",
+    "start": "webpack-dev-server --config config/webpack.config.js",
     "test": "jest",
     "tslint": "tslint --config tslint.json './src/**/*.{ts,tsx}'",
     "tslint:check": "tslint-config-prettier-check ./tslint.json",
