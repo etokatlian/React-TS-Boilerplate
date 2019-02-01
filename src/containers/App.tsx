@@ -1,8 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
 import { DatePicker, Slider } from 'antd';
-
-import RandomPage from '../features/randompage/RandomPageContainer';
+import styled from 'styled-components';
+import RandomPage from '../features/randompage/RandomPage';
 import TFLogo from '../assets/images/tf-logo.svg';
 
 export interface IAppProps {
@@ -44,15 +43,18 @@ const marks = {
   24: '24',
   36: '36',
   100: {
+    label: <strong>72</strong>,
     style: {
-      color: '#f50'
+      color: '#f50',
     },
-    label: <strong>72</strong>
-  }
+  },
 };
 
 export default class App extends React.Component<IAppProps, IAppState> {
   public render() {
+    const step = 10;
+    const defaultValue = 36;
+
     return (
       <StyledApp className="app-wrapper">
         <img src={TFLogo} alt="" />
