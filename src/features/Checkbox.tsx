@@ -18,8 +18,6 @@ export class CheckboxWithLabel extends React.Component<
   };
 
   public render() {
-    const something = true;
-    const test = something ? 'something' : 'else';
     return (
       <label>
         <input
