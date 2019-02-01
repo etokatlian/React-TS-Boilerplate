@@ -1,21 +1,15 @@
 import React from 'react';
 
-export interface IProps {
-  name: string;
-  enthusiasmLevel?: number;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
-}
+// How do we reuse interface from container here?
+// import { Props } from './RandomPageContainer';
 
 // helpers
-
-// declare function getExclamationMarks(numChars: number): string;
 
 const getExclamationMarks: (numChars: number) => string = numChars => {
   return Array(numChars + 1).join('!');
 };
 
-const RandomPage: React.FC<IProps> = ({
+const RandomPage: React.FC<Props> = ({
   name,
   enthusiasmLevel = 1,
   onIncrement,

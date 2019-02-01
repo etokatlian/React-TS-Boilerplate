@@ -1,7 +1,7 @@
 const variables = {
   colors: {
     blue: '#007EC9',
-    green: '#54C459'
+    green: '#54C459',
   },
   spacing: {
     xs: '8px',
@@ -10,8 +10,8 @@ const variables = {
     lg: '28px',
     xl: '40px',
     xxl: '68px',
-    xxxl: '82px'
-  }
+    xxxl: '82px',
+  },
 };
 
 export default variables;

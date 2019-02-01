@@ -13,11 +13,11 @@ import { enthusiasm } from './reducers/randompage';
 
 import App from './containers/App';
 
-const store: () => void = createStore(
+const store = createStore(
   enthusiasm,
   {
     enthusiasmLevel: 1,
-    languageName: 'TypeScript'
+    languageName: 'TypeScript',
   },
   composeWithDevTools()
 );

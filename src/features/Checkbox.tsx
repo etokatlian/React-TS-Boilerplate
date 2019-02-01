@@ -1,13 +1,16 @@
 import * as React from 'react';
 
+export interface ICheckBoxWithLabelProps {
+  labelOn: string;
+  labelOff: string;
+}
+
+export interface ICheckBoxWithLabelState {
+  isChecked: boolean;
+}
 export class CheckboxWithLabel extends React.Component<
-  {
-    labelOn: string;
-    labelOff: string;
-  },
-  {
-    isChecked: boolean;
-  }
+  ICheckBoxWithLabelProps,
+  ICheckBoxWithLabelState
 > {
   constructor(props: any) {
     super(props);
