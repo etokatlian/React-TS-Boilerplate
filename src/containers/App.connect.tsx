@@ -12,7 +12,9 @@ import App from './App';
 
 interface OwnProps {}
 
-const mapStateToProps = (state: RootState) => ({});
+const mapStateToProps = (state: RootState) => ({
+  user: state.user.user,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>, props: OwnProps) =>
   bindActionCreators(
