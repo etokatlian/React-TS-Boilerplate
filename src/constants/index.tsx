@@ -1,5 +1,3 @@
-export const INCREMENT_ENTHUSIASM: string = 'INCREMENT_ENTHUSIASM';
-export type INCREMENT_ENTHUSIASM = typeof INCREMENT_ENTHUSIASM;
-
-export const DECREMENT_ENTHUSIASM: string = 'DECREMENT_ENTHUSIASM';
-export type DECREMENT_ENTHUSIASM = typeof DECREMENT_ENTHUSIASM;
+export const GITHUB_USER_GET = '@@github-user/GET';
+export const GITHUB_USER_SET = '@@github-user/SET';
+export const GITHUB_USER_ERROR = '@@github-user/ERROR';

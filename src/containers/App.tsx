@@ -1,10 +1,11 @@
 import React from 'react';
-import { DatePicker, Slider } from 'antd';
+import { DatePicker, Slider, Input } from 'antd';
 import styled from 'styled-components';
 import RandomPage from '../features/randompage/RandomPage';
 import TFLogo from '../assets/images/tf-logo.svg';
 
 export interface IAppProps {
+  getGithubUser: (username: string) => void;
   some?: any;
 }
 
@@ -50,7 +51,17 @@ const marks = {
   },
 };
 
+const Search = Input.Search;
+
 export default class App extends React.Component<IAppProps, IAppState> {
+  constructor(props: IAppProps) {
+    super(props);
+  }
+
+  public getUser = (value: string) => {
+    this.props.getGithubUser(value);
+  };
+
   public render() {
     const step = 10;
     const defaultValue = 36;
@@ -61,7 +72,11 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <StyledDiv>React/TS Boilerplate</StyledDiv>
         <DatePicker />
         <StyledSlider marks={marks} step={10} defaultValue={36} />
-        {/* <RandomPage name="test" /> */}
+        <Search
+          placeholder="input search text"
+          onSearch={value => this.getUser(value)}
+          enterButton={true}
+        />
       </StyledApp>
     );
   }

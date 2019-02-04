@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import App from './containers/App';
+import App from './containers/App.connect';
 
 export const routes = (
   <Switch>
