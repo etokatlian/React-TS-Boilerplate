@@ -1,11 +1,13 @@
-# React-TS Boilerplate
+# React-Typescript Boilerplate
 
 ## Description
 
-Boilerplate for client side JS application that`includes the following:
+Boilerplate for client side web app that includes the following:
 
 - React @16
 - Typescript @3
+- Rxjs @6
+- Redux-Observable @1
 - Styled-Components @4
 - Ant Design @3
 - Webpack @4
@@ -31,9 +33,9 @@ _Use yarn, instead of npm, for better caching/performance_
 
 ## VSCode
 
-To work on this project and abide by the linting rules, please install the following Extensions: TypeScrit TSLint Plugin (New Version), Prettier
+To work on this project and abide by the linting rules, please install the following Extensions: TypeScript TSLint Plugin (New Version), Prettier
 
-Confine the TypeScrit TSLint Plugin (New Version), Prettier extensions to this project by creating a .vscode folder inside your root dir, placing a settings.json file in it and the following contents:
+Confine the TypeScript TSLint Plugin (New Version), Prettier extensions to this project by creating a .vscode folder inside your root dir, placing a settings.json file in it and the following contents:
 
 ```
 {
