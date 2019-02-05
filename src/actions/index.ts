@@ -15,3 +15,8 @@ export const githubSetUser = createAction(
   GITHUB_USER_SET,
   resolve => (user: Response) => resolve(user)
 );
+
+export const githubGetUserError = createAction(
+  GITHUB_USER_ERROR,
+  resolve => (error: Error) => resolve(error)
+);

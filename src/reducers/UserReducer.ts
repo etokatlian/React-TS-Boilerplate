@@ -28,6 +28,10 @@ export const UserReducer = (
     case getType(actions.githubSetUser):
       return Object.assign({}, state, { user: new User(action.payload) });
 
+    case getType(actions.githubGetUserError):
+      console.log('hello');
+      return state;
+
     default:
       return state;
   }

@@ -39,6 +39,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   public render() {
     const { user } = this.props;
+
     return (
       <StyledApp className="app-wrapper">
         <img src={TFLogo} alt="" />
