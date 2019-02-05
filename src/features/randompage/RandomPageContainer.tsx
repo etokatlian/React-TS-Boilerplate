@@ -1,13 +1,33 @@
-import RandomPage from './RandomPage';
-import * as actions from './randomPageActions';
-import { IStoreState } from '../../types/index';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
-export const mapStateToProps: (
-  entusiasmLevel: number,
-  languageName: string
-) => IStoreState = ({ enthusiasmLevel, languageName }: IStoreState) => {
+import RandomPage from './RandomPage';
+import * as RandomActions from './randomPageActions';
+import { IStoreState } from '../../types/index';
+
+// Props passed from mapStateToProps
+export interface IPropsFromState {
+  enthusiasmLevel: number;
+  name: string;
+}
+
+// Props passed from mapDispatchToProps
+export interface IPropsFromDispatch {
+  onDecrement: typeof RandomActions.decrementEnthusiasm;
+  onIncrement: typeof RandomActions.incrementEnthusiasm;
+}
+
+// Props specific to the component
+export interface IComponentProps {
+  children: (props: ContainerProps) => React.ReactNode;
+}
+
+export type ContainerProps = IPropsFromState & IPropsFromDispatch;
+
+export const mapStateToProps = ({
+  enthusiasmLevel,
+  languageName,
+}: IStoreState): IPropsFromState => {
   return {
     enthusiasmLevel,
     name: languageName,
@@ -15,15 +35,15 @@ export const mapStateToProps: (
 };
 
 export const mapDispatchToProps = (
-  dispatch: Dispatch<actions.EnthusiasmAction>
-) => {
+  dispatch: Dispatch<RandomActions.EnthusiasmAction>
+): IPropsFromDispatch => {
   return {
-    onDecrement: () => dispatch(actions.decrementEnthusiasm()),
-    onIncrement: () => dispatch(actions.incrementEnthusiasm()),
+    onDecrement: () => dispatch(RandomActions.decrementEnthusiasm()),
+    onIncrement: () => dispatch(RandomActions.incrementEnthusiasm()),
   };
 };
 
-export default connect(
+export default connect<IPropsFromState, IPropsFromDispatch, {}>(
   mapStateToProps,
   mapDispatchToProps
 )(RandomPage);

@@ -21,10 +21,14 @@
     "object-literal-key-quotes": [true, "as-needed"],
     "prefer-switch": [true, { "min-cases": 3 }],
     "prefer-template": true,
-    "typedef": [true, "property-declaration", "variable-declaration"],
+    "typedef": [
+      true,
+      "parameter",
+      "member-variable-declaration",
+      "property-declaration"
+    ],
     "quotemark": [true, "single", "jsx-double"],
     "arrow-parens": false,
-    "ordered-imports": false,
 
     "jsx-alignment": true,
     "jsx-curly-spacing": "never",
