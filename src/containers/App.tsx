@@ -32,8 +32,9 @@ export default class App extends React.Component<IAppProps, IAppState> {
     super(props);
   }
 
-  public getUser = (value: string) => {
-    this.props.getGithubUser(value);
+  public getUser = (e: React.FormEvent<HTMLInputElement>) => {
+    e.persist();
+    this.props.getGithubUser(e.currentTarget.value);
   };
 
   public render() {
@@ -44,7 +45,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <StyledDiv>React/TS Boilerplate</StyledDiv>
         <Search
           placeholder="input search text"
-          onSearch={value => this.getUser(value)}
+          onChange={e => this.getUser(e)}
           enterButton={true}
         />
         <div style={{ marginTop: '20px' }}>
