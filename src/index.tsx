@@ -9,6 +9,7 @@ import { createEpicMiddleware } from 'redux-observable';
 
 import theme from './assets/theme';
 import { enthusiasm } from './reducers/randompage';
+import BaseStyles from './assets/theme/base-styles';
 
 import App from './containers/App.connect';
 
@@ -46,7 +47,10 @@ epicMiddleware.run(epics);
 ReactDOM.render(
   <Provider store={store}>
     <ThemeProvider theme={theme}>
-      <App />
+      <>
+        <BaseStyles />
+        <App />
+      </>
     </ThemeProvider>
   </Provider>,
   document.getElementById('app') as HTMLElement
