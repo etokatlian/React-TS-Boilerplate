@@ -14,8 +14,8 @@ export interface IAppState {
 }
 
 export const StyledApp = styled.div`
-  width: 500px;
-  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StyledDiv = styled.div`

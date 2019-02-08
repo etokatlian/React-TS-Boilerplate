@@ -9,6 +9,7 @@
     [
       "import",
       { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }
-    ]
+    ],
+    ["import", { "libraryName": "antd-mobile", "style": "css" }, "mobile"]
   ]
 }
