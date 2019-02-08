@@ -6,9 +6,9 @@ import * as actions from '../actions';
 
 import { RootState } from '../reducers';
 
-type Action = ActionType<typeof actions>;
+import App from '../features/App';
 
-import App from './App';
+type Action = ActionType<typeof actions>;
 
 interface OwnProps {}
 
