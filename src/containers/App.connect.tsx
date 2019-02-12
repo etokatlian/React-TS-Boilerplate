@@ -6,14 +6,14 @@ import * as actions from '../actions';
 
 import { RootState } from '../reducers';
 
-import App from '../features/App';
+import App from '../features/PageOne';
 
 type Action = ActionType<typeof actions>;
 
 interface OwnProps {}
 
 const mapStateToProps = (state: RootState) => ({
-  user: state.user.user,
+  user: state.user,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>, props: OwnProps) =>

@@ -7,8 +7,8 @@ type Action = ActionType<typeof actions>;
 // User Model
 class User {
   public login: string;
-  public id: number;
-  public url: string;
+  public id?: number;
+  public url?: string;
   constructor(args?: {}) {
     Object.assign(this, args);
   }
@@ -18,7 +18,11 @@ export interface IUserState {
   readonly user?: User;
 }
 
-const initialState = {};
+const initialState = {
+  user: {
+    login: 'etokatlian',
+  },
+};
 
 export const UserReducer = (
   state: IUserState = initialState,
@@ -29,7 +33,6 @@ export const UserReducer = (
       return Object.assign({}, state, { user: new User(action.payload) });
 
     case getType(actions.githubGetUserError):
-      console.log('hello');
       return state;
 
     default:
