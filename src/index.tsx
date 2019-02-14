@@ -2,11 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import {
-  configureStore,
-  runEpicMiddlewares,
-  history,
-} from './config/configureStore';
+import { configureStore, runEpicMiddlewares } from './config/configureStore';
 import epics from './epics';
 import App from './App';
 
