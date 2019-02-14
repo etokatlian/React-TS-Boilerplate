@@ -18,6 +18,7 @@
     "newline-before-return": true,
     "no-redundant-jsdoc": true,
     "number-literal-format": true,
+    "object-literal-sort-keys": false,
     "object-literal-key-quotes": [true, "as-needed"],
     "prefer-switch": [true, { "min-cases": 3 }],
     "prefer-template": true,

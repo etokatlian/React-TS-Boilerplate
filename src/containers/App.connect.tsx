@@ -12,14 +12,16 @@ type Action = ActionType<typeof actions>;
 
 interface OwnProps {}
 
-const mapStateToProps = (state: RootState) => ({
-  user: state.user,
-});
+const mapStateToProps = (state: RootState) => {
+  return {
+    user: state.UserReducer.user
+  };
+};
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>, props: OwnProps) =>
   bindActionCreators(
     {
-      getGithubUser: (username: string) => actions.githubGetUser(username),
+      getGithubUser: (username: string) => actions.githubGetUser(username)
     },
     dispatch
   );

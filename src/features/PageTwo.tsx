@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class SecondPage extends Component {
   public render() {
     return (
       <>
-        <h1>Second page</h1>
+        <Link to="/">
+          <h1>Second page</h1>
+        </Link>
       </>
     );
   }
