@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import {
   configureStore,
   runEpicMiddlewares,
-  history
+  history,
 } from './config/configureStore';
 import epics from './epics';
 import App from './App';
