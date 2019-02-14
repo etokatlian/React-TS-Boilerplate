@@ -9,7 +9,7 @@
   "jsRules": {},
   "rules": {
     "ordered-imports": false,
-    "no-magic-numbers": true,
+    "no-magic-numbers": false,
     "no-duplicate-switch-case": true,
     "no-invalid-template-strings": true,
     "no-this-assignment": true,
@@ -35,7 +35,7 @@
     "jsx-curly-spacing": "never",
     "jsx-equals-spacing": "never",
     "jsx-no-bind": true,
-    "jsx-no-lambda": true,
+    "jsx-no-lambda": false,
     "jsx-no-string-ref": true,
     "jsx-self-close": true,
     "jsx-wrap-multiline": true,

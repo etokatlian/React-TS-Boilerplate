@@ -16,7 +16,10 @@
     "serve": "node server.js"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "yarn pre-commit",
+      "pre-push": "yarn pre-commit"
+    }
   },
   "dependencies": {
     "@babel/polyfill": "^7.2.5",

@@ -10,7 +10,7 @@ export interface IUserReducer {
     url: string;
   };
 }
-export interface RootState {
+export interface IRootState {
   user: IUserState;
   UserReducer: IUserReducer;
 }

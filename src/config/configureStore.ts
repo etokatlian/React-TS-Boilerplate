@@ -5,14 +5,16 @@ import { routerMiddleware } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 
 import * as actions from '../actions';
-import { createRootReducer, RootState } from '../reducers';
+import { createRootReducer, IRootState } from '../reducers';
 
 export const history = createBrowserHistory();
 
 type Action = ActionType<typeof actions>;
 
 declare global {
+  // tslint:disable-next-line
   interface Window {
+    // tslint:disable-next-line
     __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: Function;
   }
 }
@@ -24,7 +26,7 @@ const composeEnhancers =
       })
     : compose;
 
-const epicMiddleware = createEpicMiddleware<Action, Action, RootState>();
+const epicMiddleware = createEpicMiddleware<Action, Action, IRootState>();
 
 export function configureStore(preloadedState?: any) {
   const store = createStore(
@@ -42,6 +44,6 @@ export function configureStore(preloadedState?: any) {
   return store;
 }
 
-export const runEpicMiddlewares = (epics: Epic<Action, Action, RootState>) => {
+export const runEpicMiddlewares = (epics: Epic<Action, Action, IRootState>) => {
   return epicMiddleware.run(epics);
 };

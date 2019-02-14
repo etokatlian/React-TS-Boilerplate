@@ -4,24 +4,22 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions';
 
-import { RootState } from '../reducers';
+import { IRootState } from '../reducers';
 
 import App from '../features/PageOne';
 
 type Action = ActionType<typeof actions>;
 
-interface OwnProps {}
-
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state: IRootState) => {
   return {
-    user: state.UserReducer.user
+    user: state.UserReducer.user,
   };
 };
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>, props: OwnProps) =>
+const mapDispatchToProps = (dispatch: Dispatch<Action>, props: {}) =>
   bindActionCreators(
     {
-      getGithubUser: (username: string) => actions.githubGetUser(username)
+      getGithubUser: (username: string) => actions.githubGetUser(username),
     },
     dispatch
   );
