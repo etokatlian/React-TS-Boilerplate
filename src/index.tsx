@@ -1,26 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { ThemeProvider } from 'styled-components';
+import { ConnectedRouter } from 'connected-react-router';
 
-import { configureStore, runEpicMiddlewares } from './config/configureStore';
-import theme from './assets/theme';
-import BaseStyles from './assets/theme/base-styles';
-import App from './containers/App.connect';
+import {
+  configureStore,
+  runEpicMiddlewares,
+  history,
+} from './config/configureStore';
 import epics from './epics';
+import App from './App';
 
 const store = configureStore();
 
 runEpicMiddlewares(epics);
 
-ReactDOM.render(
+const ConnectedApp = () => (
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
-      <>
-        <BaseStyles />
-        <App />
-      </>
-    </ThemeProvider>
-  </Provider>,
-  document.getElementById('app') as HTMLElement
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
+  </Provider>
 );
+
+ReactDOM.render(<ConnectedApp />, document.getElementById(
+  'app'
+) as HTMLElement);

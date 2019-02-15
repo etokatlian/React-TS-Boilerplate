@@ -1,4 +1,4 @@
-import { EnthusiasmAction } from '../../features/randompage/randomPageActions';
+import { EnthusiasmAction } from '../../pages/randompage/randomPageActions';
 import { IStoreState } from '../../types/index';
 import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../../constants';
 

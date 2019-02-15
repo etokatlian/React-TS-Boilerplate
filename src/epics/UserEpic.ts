@@ -13,11 +13,11 @@ import * as actions from '../actions';
 
 type Action = ActionType<typeof actions>;
 
-import { RootState } from '../reducers';
+import { IRootState } from '../reducers';
 
 import { getUser } from '../services/Api';
 
-const githubUserEpic: Epic<Action, Action, RootState> = (action$, store) => {
+const githubUserEpic: Epic<Action, Action, IRootState> = (action$, store) => {
   return action$.pipe(
     debounceTime(500),
     filter(isActionOf(actions.githubGetUser)),

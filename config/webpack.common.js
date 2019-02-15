@@ -5,6 +5,15 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: "./src/index.tsx",
 
+  stats: {
+    all: undefined,
+    colors: true,
+    modules: false,
+    children: false,
+    builtAt: false,
+    version: false
+  },
+
   output: {
     filename: "[name].[hash].js",
     chunkFilename: "[name].[hash].js",

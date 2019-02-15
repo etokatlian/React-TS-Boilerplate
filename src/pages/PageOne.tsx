@@ -1,5 +1,6 @@
 import React from 'react';
 import { Input, Card } from 'antd';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import TFLogo from '../assets/images/tf-logo.svg';
 
@@ -43,7 +44,9 @@ export default class App extends React.Component<IAppProps, IAppState> {
     return (
       <StyledApp className="app-wrapper">
         <img src={TFLogo} alt="" />
-        <StyledDiv>React/TS Boilerplate</StyledDiv>
+        <Link to="/pagetwo">
+          <StyledDiv>React/TS Boilerplate</StyledDiv>
+        </Link>
         <Search
           placeholder="input search text"
           onChange={e => this.getUser(e)}

@@ -1,13 +1,22 @@
 import { combineReducers } from 'redux';
+import { connectRouter } from 'connected-react-router';
 
 import { UserReducer, IUserState } from './UserReducer';
 
-export interface RootState {
+export interface IUserReducer {
+  user: {
+    avatar_url: string;
+    login: string;
+    url: string;
+  };
+}
+export interface IRootState {
   user: IUserState;
+  UserReducer: IUserReducer;
 }
 
-const reducers = combineReducers({
-  user: UserReducer,
-});
-
-export default reducers;
+export const createRootReducer = (history: any) =>
+  combineReducers({
+    router: connectRouter(history),
+    UserReducer,
+  });
