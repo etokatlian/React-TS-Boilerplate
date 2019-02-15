@@ -6,7 +6,7 @@ import * as actions from '../actions';
 
 import { IRootState } from '../reducers';
 
-import App from '../features/PageOne';
+import App from '../pages/PageOne';
 
 type Action = ActionType<typeof actions>;
 

@@ -20,7 +20,7 @@ export interface IUserState {
 
 const initialState = {
   user: {
-    login: 'etokatlian',
+    login: '',
   },
 };
 

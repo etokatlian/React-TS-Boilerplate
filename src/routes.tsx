@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 // routes
 import PageOne from './containers/App.connect';
-import PageTwo from './features/PageTwo';
+import PageTwo from './pages/PageTwo';
 
 const Routes = () => {
   return (
