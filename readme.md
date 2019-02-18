@@ -8,7 +8,7 @@ Boilerplate for client side web app that includes the following:
 - Typescript @3
 - Rxjs @6
 - Redux-Observable @1
-- Styled-Components @4
+- Less @3
 - Ant Design @3
 - Webpack @4
 - Jest @23
