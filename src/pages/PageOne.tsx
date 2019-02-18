@@ -3,6 +3,7 @@ import { Input, Card } from 'antd';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import TFLogo from '../assets/images/tf-logo.svg';
+import SwitchButton from '../shared/SwitchButton/SwitchButton';
 
 export interface IAppProps {
   getGithubUser: (username: string) => void;
@@ -43,16 +44,16 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
     return (
       <StyledApp className="app-wrapper">
-        <img src={TFLogo} alt="" />
-        <Link to="/pagetwo">
+        {/* <img src={TFLogo} alt="" /> */}
+        {/* <Link to="/pagetwo">
           <StyledDiv>React/TS Boilerplate</StyledDiv>
-        </Link>
-        <Search
+        </Link> */}
+        {/* <Search
           placeholder="input search text"
           onChange={e => this.getUser(e)}
           enterButton={true}
-        />
-        <div style={{ marginTop: '20px' }}>
+        /> */}
+        {/* <div style={{ marginTop: '20px' }}>
           {user && (
             <Card
               hoverable={true}
@@ -62,7 +63,8 @@ export default class App extends React.Component<IAppProps, IAppState> {
               <Meta title={user.login} description={user.url} />
             </Card>
           )}
-        </div>
+        </div> */}
+        <SwitchButton />
       </StyledApp>
     );
   }
