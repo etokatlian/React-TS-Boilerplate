@@ -11,6 +11,8 @@ import {
 import epics from './epics';
 import App from './App';
 
+import './styles/index.less';
+
 const store = configureStore();
 
 runEpicMiddlewares(epics);

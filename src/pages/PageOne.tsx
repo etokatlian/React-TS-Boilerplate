@@ -43,16 +43,17 @@ export default class App extends React.Component<IAppProps, IAppState> {
     const { user } = this.props;
 
     return (
-      <StyledApp className="app-wrapper">
+      <StyledApp>
         {/* <img src={TFLogo} alt="" /> */}
         {/* <Link to="/pagetwo">
           <StyledDiv>React/TS Boilerplate</StyledDiv>
         </Link> */}
-        {/* <Search
+        <Search
+          className="some-class"
           placeholder="input search text"
           onChange={e => this.getUser(e)}
           enterButton={true}
-        /> */}
+        />
         {/* <div style={{ marginTop: '20px' }}>
           {user && (
             <Card
@@ -64,6 +65,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
             </Card>
           )}
         </div> */}
+        <div className="some-class">Hello</div>
         <SwitchButton />
       </StyledApp>
     );
