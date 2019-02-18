@@ -1,7 +1,14 @@
 const variables = {
   colors: {
     blue: '#007EC9',
-    green: '#54C459',
+    green: '#63B245',
+    black: '#000000',
+    white: '#FFFFFF',
+    greyDarkest: '#343B43',
+    greyDark: '#525252',
+    greyMedium: '#9F9F9F',
+    greyLight: '#BABABA',
+    greyLightest: '#D7D7D6',
   },
   spacing: {
     xs: '8px',
