@@ -1,4 +1,5 @@
 import React from 'react';
+
 import SwitchButton from '../shared/Switch';
 
 export interface IAppProps {
@@ -9,25 +10,31 @@ export interface IAppProps {
 
 export interface IAppState {
   some?: any;
+  mechanicalDefects: boolean;
 }
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
+    this.state = {
+      mechanicalDefects: false,
+    };
   }
 
-  public getUser = (e: React.FormEvent<HTMLInputElement>) => {
-    e.persist();
-    this.props.getGithubUser(e.currentTarget.value);
+  public test = (e: any) => {
+    this.setState({
+      mechanicalDefects: !this.state.mechanicalDefects,
+    });
   };
 
   public render() {
-    const { user } = this.props;
-
     return (
       <div>
-        <h1>Hello</h1>
-        <SwitchButton />
+        <SwitchButton
+          bool={this.state.mechanicalDefects}
+          leftLabel={true}
+          onChange={(e: any) => this.test(e)}
+        />
       </div>
     );
   }

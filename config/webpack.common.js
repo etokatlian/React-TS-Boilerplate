@@ -40,9 +40,10 @@ module.exports = {
           {
             loader: "less-loader", // compiles Less to CSS
             options: {
-              modifyVars: {
-                "primary-color": "red",
-              },
+              // modifyVars: {
+              //   "primary-color": "red",
+              // },
+              javascriptEnabled: true,
             },
           },
         ],
