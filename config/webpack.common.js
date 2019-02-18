@@ -11,32 +11,51 @@ module.exports = {
     modules: false,
     children: false,
     builtAt: false,
-    version: false
+    version: false,
   },
 
   output: {
     filename: "[name].[hash].js",
     chunkFilename: "[name].[hash].js",
     path: path.resolve(__dirname + "/../dist"),
-    publicPath: ""
+    publicPath: "",
   },
 
   resolve: {
     // Add '.ts' and '.tsx' as resolvable extensions.
-    extensions: [".ts", ".tsx", ".js", ".json"]
+    extensions: [".ts", ".tsx", ".js", ".json"],
   },
 
   module: {
     rules: [
       {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader", // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader", // translates CSS into CommonJS
+          },
+          {
+            loader: "less-loader", // compiles Less to CSS
+            options: {
+              modifyVars: {
+                "primary-color": "red",
+              },
+            },
+          },
+        ],
+      },
+      {
         test: /\.tsx?$/,
-        loader: "babel-loader"
+        loader: "babel-loader",
       },
       // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       {
         enforce: "pre",
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: "source-map-loader",
       },
       // Resolve png/jpg/gif into url and emit file into the output directory
       {
@@ -47,10 +66,10 @@ module.exports = {
             options: {
               limit: 8192,
               mimetype: "image/png",
-              name: "images/[name].[ext]"
-            }
-          }
-        ]
+              name: "images/[name].[ext]",
+            },
+          },
+        ],
       },
       // Resolve svg into url and emit file into the output directory
       {
@@ -61,12 +80,12 @@ module.exports = {
             options: {
               limit: 8192,
               mimetype: "image/svg+xml",
-              name: "images/[name].[ext]"
-            }
-          }
-        ]
-      }
-    ]
+              name: "images/[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
@@ -74,7 +93,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${__dirname}/index.html`,
       filename: "index.html",
-      inject: "body"
-    })
-  ]
+      inject: "body",
+    }),
+  ],
 };
