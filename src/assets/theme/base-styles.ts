@@ -13,7 +13,7 @@ const baseStyles = createGlobalStyle`
   body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
-    color: ${variables.colors.blue};
+    /* color: ${variables.colors.blue}; */
   }
 
   input:-webkit-autofill,
