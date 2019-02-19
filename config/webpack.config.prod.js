@@ -41,8 +41,18 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+        test: /\.(le|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              modifyVars: require("./antTheme"),
+              javascriptEnabled: true
+            }
+          }
+        ]
       }
     ]
   },
@@ -53,14 +63,14 @@ module.exports = merge(common, {
       chunkFilename: "[id].css"
     }),
     // Used to decrease momentjs bundle size
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
-    new CompressionPlugin({
-      algorithm: "gzip",
-      test: /\.js$|\.(sa|sc|c)ss$|\.html$/,
-      threshold: 2000,
-      minRatio: 0.8,
-      deleteOriginalAssets: true
-    })
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/)
+    // new CompressionPlugin({
+    //   algorithm: "gzip",
+    //   test: /\.js$|\.(le|c)ss$|\.html$/,
+    //   threshold: 2000,
+    //   minRatio: 0.8,
+    //   deleteOriginalAssets: true
+    // })
   ],
 
   // Used to decrease momentjs bundle size

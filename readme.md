@@ -44,3 +44,7 @@ Confine the TypeScript TSLint Plugin (New Version), Prettier extensions to this 
   "prettier.tslintIntegration": true
 }
 ```
+
+## TODOS
+
+Re-visit AntDesign icons bundle size issue listed [here](https://github.com/zeit/next.js/issues/4101#issuecomment-456719039) and solution.

@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const common = require("./webpack.common");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
 // .BundleAnalyzerPlugin;
 
@@ -14,17 +13,23 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+        test: /\.(le|c)ss$/,
+        use: [
+          "style-loader",
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              javascriptEnabled: true,
+              modifyVars: require("./ant-theme-overrides")
+            }
+          }
+        ]
       }
     ]
   },
 
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    }),
     // Used to decrease momentjs bundle size
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/)
     // new BundleAnalyzerPlugin()
