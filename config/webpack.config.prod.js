@@ -24,18 +24,18 @@ module.exports = merge(common, {
               /[\\/]node_modules[\\/](.*?)([\\/]|$)/
             )[1];
             return `npm.${packageName.replace("@", "")}`;
-          }
-        }
-      }
+          },
+        },
+      },
     },
     minimizer: [
       new UglifyJsPlugin({
         cache: true,
         parallel: true,
-        sourceMap: true
+        sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
-    ]
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
 
   module: {
@@ -48,33 +48,33 @@ module.exports = merge(common, {
           {
             loader: "less-loader",
             options: {
-              modifyVars: require("./antTheme"),
-              javascriptEnabled: true
-            }
-          }
-        ]
-      }
-    ]
+              modifyVars: require("./ant-theme-overrides"),
+              javascriptEnabled: true,
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
+      chunkFilename: "[id].css",
     }),
     // Used to decrease momentjs bundle size
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/)
-    // new CompressionPlugin({
-    //   algorithm: "gzip",
-    //   test: /\.js$|\.(le|c)ss$|\.html$/,
-    //   threshold: 2000,
-    //   minRatio: 0.8,
-    //   deleteOriginalAssets: true
-    // })
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
+    new CompressionPlugin({
+      algorithm: "gzip",
+      test: /\.js$|\.(le|c)ss$|\.html$/,
+      threshold: 2000,
+      minRatio: 0.8,
+      deleteOriginalAssets: true,
+    }),
   ],
 
   // Used to decrease momentjs bundle size
   resolve: {
-    alias: { moment: `moment/moment.js` }
-  }
+    alias: { moment: `moment/moment.js` },
+  },
 });
