@@ -8,7 +8,7 @@
     "@babel/plugin-proposal-class-properties",
     [
       "import",
-      { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }
+      { "libraryName": "antd", "libraryDirectory": "es", "style": true }
     ],
     ["import", { "libraryName": "antd-mobile", "style": "css" }, "mobile"]
   ]

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import SwitchButton from '../shared/Switch';
 
 export interface IAppProps {

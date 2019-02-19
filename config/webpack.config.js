@@ -14,31 +14,41 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      }
-    ]
+        test: /\.(le|c)ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          {
+            loader: "less-loader",
+            options: {
+              javascriptEnabled: true,
+              modifyVars: require("./ant-theme-overrides"),
+            },
+          },
+        ],
+      },
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css",
-      chunkFilename: "[id].css"
+      chunkFilename: "[id].css",
     }),
     // Used to decrease momentjs bundle size
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/)
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /ru/),
     // new BundleAnalyzerPlugin()
   ],
 
   // Used to decrease momentjs bundle size
   resolve: {
-    alias: { moment: `moment/moment.js` }
+    alias: { moment: `moment/moment.js` },
   },
 
   // Dev server options
   devServer: {
     port: 8080,
     historyApiFallback: true,
-    inline: true
-  }
+    inline: true,
+  },
 });

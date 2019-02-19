@@ -2,6 +2,9 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+// const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+//   .BundleAnalyzerPlugin;
+
 module.exports = {
   entry: "./src/index.tsx",
 
@@ -90,6 +93,7 @@ module.exports = {
   },
 
   plugins: [
+    // new BundleAnalyzerPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: `${__dirname}/index.html`,
