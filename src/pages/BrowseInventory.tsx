@@ -11,7 +11,7 @@ class BrowseInventory extends React.Component {
           <SearchInput placeholder="Search by Make, Model..." size="large" />
         </div>
         <div className="browse-inventory__search-button">
-          <Button size="large" text="Go" />
+          <Button type="primary" size="large" text="Go" />
         </div>
       </div>
     );
